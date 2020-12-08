@@ -1,4 +1,7 @@
 .idea
+./data/postgres_quake_tr
+./data/postgres_airflow
+./data/pgadmin
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

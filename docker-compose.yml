@@ -1,0 +1,72 @@
+version: '3.8'
+services:
+  quake_tr_postgres:
+    image: postgres:9.6
+    restart: always
+    container_name: quake_tr_postgres
+    environment:
+      - POSTGRES_USER=quake_tr
+      - POSTGRES_PASSWORD=quake_tr
+      - POSTGRES_DB=quake_tr
+    ports:
+      - "5435:5432"
+    volumes:
+      - ./data/postgres_quake_tr:/var/lib/postgresql/data
+  postgres:
+    image: postgres:9.6
+    restart: always
+    container_name: quake_tr_postgres_airflow
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    ports:
+      - "5436:5432"
+    volumes:
+      - ./data/postgres_airflow:/var/lib/postgresql/data
+  airflow:
+    image: puckel/docker-airflow:1.10.9
+    restart: always
+    container_name: quake_tr_airflow
+    depends_on:
+      - postgres
+      - quake_tr_postgres
+    environment:
+      - LOAD_EX=n
+      - EXECUTOR=Local
+      - AIRFLOW__CORE__FERNET_KEY='oSsWYgzHeOIVXEd2pn2_uct-w-ES4njALV4pD8JVJqY='
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    volumes:
+      - ./python/airflow/dags:/usr/local/airflow/dags
+      - ./python/airflow/requirements.txt:/requirements.txt
+      # - ./plugins:/usr/local/airflow/plugins
+    ports:
+      - "8082:8080"
+    command: webserver
+    healthcheck:
+      test: [ "CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]" ]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    container_name: quake_tr_pgadmin
+    environment:
+      - POSTGRES_USER=quake_tr
+      - POSTGRES_PASSWORD=quake_tr
+      - PGADMIN_DEFAULT_EMAIL=quake_tr@quake_tr.io
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    volumes:
+      - ./data/pgadmin:/root/.pgadmin
+    ports:
+      - "5051:80"
+    depends_on:
+      - quake_tr_postgres
