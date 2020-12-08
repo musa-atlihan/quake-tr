@@ -62,7 +62,7 @@ services:
     environment:
       - POSTGRES_USER=quake_tr
       - POSTGRES_PASSWORD=quake_tr
-      - PGADMIN_DEFAULT_EMAIL=quake_tr@quake_tr.io
+      - PGADMIN_DEFAULT_EMAIL=test@pgadmin.io
       - PGADMIN_DEFAULT_PASSWORD=admin
     volumes:
       - ./data/pgadmin:/root/.pgadmin
