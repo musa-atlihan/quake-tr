@@ -22,16 +22,46 @@ dependencies:
   - xz=5.2.5=h7b6447c_0
   - zlib=1.2.11=h7b6447c_3
   - pip:
+    - alembic==1.4.3
+    - apache-airflow==1.10.12
+    - apispec==1.3.3
+    - argcomplete==1.12.2
     - argon2-cffi==20.1.0
     - async-generator==1.10
-    - attrs==20.3.0
+    - attrs==19.3.0
+    - babel==2.9.0
     - backcall==0.2.0
     - bleach==3.2.1
+    - cached-property==1.5.2
+    - cattrs==1.0.0
     - cffi==1.14.4
     - chardet==3.0.4
+    - click==7.1.2
+    - colorama==0.4.4
+    - colorlog==4.0.2
+    - configparser==3.5.3
+    - croniter==0.3.36
     - decorator==4.4.2
     - defusedxml==0.6.0
+    - dill==0.3.3
+    - dnspython==2.0.0
+    - docutils==0.16
+    - email-validator==1.1.2
     - entrypoints==0.3
+    - flask==1.1.2
+    - flask-admin==1.5.4
+    - flask-appbuilder==2.3.4
+    - flask-babel==1.0.0
+    - flask-caching==1.3.3
+    - flask-jwt-extended==3.25.0
+    - flask-login==0.4.1
+    - flask-openid==1.2.5
+    - flask-sqlalchemy==2.4.4
+    - flask-swagger==0.2.14
+    - flask-wtf==0.14.3
+    - funcsigs==1.0.2
+    - future==0.18.2
+    - gunicorn==20.0.4
     - html5lib==1.1
     - idna==2.10
     - importlib-metadata==3.1.1
@@ -39,17 +69,28 @@ dependencies:
     - ipython==7.16.1
     - ipython-genutils==0.2.0
     - ipywidgets==7.5.1
+    - iso8601==0.1.13
+    - itsdangerous==1.1.0
     - jedi==0.17.2
     - jinja2==2.11.2
+    - json-merge-patch==0.2
     - jsonschema==3.2.0
     - jupyter==1.0.0
     - jupyter-client==6.1.7
     - jupyter-console==6.2.0
     - jupyter-core==4.7.0
     - jupyterlab-pygments==0.1.2
+    - lazy-object-proxy==1.5.2
+    - lockfile==0.12.2
     - lxml==4.6.2
+    - mako==1.1.3
+    - markdown==2.6.11
     - markupsafe==1.1.1
+    - marshmallow==2.21.0
+    - marshmallow-enum==1.5.1
+    - marshmallow-sqlalchemy==0.23.1
     - mistune==0.8.4
+    - natsort==7.1.0
     - nbclient==0.5.1
     - nbconvert==6.0.7
     - nbformat==5.0.8
@@ -60,30 +101,57 @@ dependencies:
     - pandas==1.1.5
     - pandocfilters==1.4.3
     - parso==0.7.1
+    - pendulum==1.4.4
     - pexpect==4.8.0
     - pickleshare==0.7.5
+    - prison==0.1.3
     - prometheus-client==0.9.0
     - prompt-toolkit==3.0.8
+    - psutil==5.7.3
     - ptyprocess==0.6.0
     - pycparser==2.20
     - pygments==2.7.3
+    - pyjwt==1.7.1
     - pyparsing==2.4.7
     - pyrsistent==0.17.3
+    - python-daemon==2.2.4
     - python-dateutil==2.8.1
+    - python-editor==1.0.4
+    - python-graphviz==0.15
+    - python-nvd3==0.15.0
+    - python-slugify==4.0.1
+    - python3-openid==3.2.0
     - pytz==2020.4
+    - pytzdata==2020.1
+    - pyyaml==5.3.1
     - pyzmq==20.0.0
     - qtconsole==5.0.1
     - qtpy==1.9.0
     - requests==2.25.0
     - send2trash==1.5.0
+    - setproctitle==1.2.1
     - six==1.15.0
     - soupsieve==2.0.1
+    - sqlalchemy==1.3.20
+    - sqlalchemy-jsonfield==0.9.0
+    - sqlalchemy-utils==0.36.8
+    - tabulate==0.8.7
+    - tenacity==4.12.0
     - terminado==0.9.1
     - testpath==0.4.4
+    - text-unidecode==1.3
+    - thrift==0.13.0
     - tornado==6.1
     - traitlets==4.3.3
+    - typing==3.7.4.3
+    - typing-extensions==3.7.4.3
+    - tzlocal==1.5.1
+    - unicodecsv==0.14.1
     - urllib3==1.26.2
     - wcwidth==0.2.5
     - webencodings==0.5.1
+    - werkzeug==0.16.1
     - widgetsnbextension==3.5.1
+    - wtforms==2.3.3
     - zipp==3.4.0
+    - zope-deprecation==4.4.0
