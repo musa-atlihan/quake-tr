@@ -28,7 +28,7 @@ class KOERI:
             "Tip": "Hepsi"
         }
         self.columns = [
-            "Deprem Kodu", "Timestamp", "Enlem", "Boylam", "Der(km)",
+            "Deprem Kodu", "timestamp", "Enlem", "Boylam", "Der(km)",
             "xM", "MD", "ML", "Mw", "Ms",
             "Mb", "Tip", "Yer"
         ]
@@ -44,7 +44,7 @@ class KOERI:
     @staticmethod
     def _parse_row(row):
         row["timestamp"] = f"{row['Olus tarihi']} {row['Olus zamani']}"
-        row["Yer"] = row["Yer"].encode("utf-8")
+        row["Yer"] = row["Yer"]
         return row
 
     def _generate_file_name(self):
