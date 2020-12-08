@@ -38,7 +38,7 @@ services:
     environment:
       - LOAD_EX=n
       - EXECUTOR=Local
-      - AIRFLOW__CORE__FERNET_KEY='oSsWYgzHeOIVXEd2pn2_uct-w-ES4njALV4pD8JVJqY='
+      - AIRFLOW__CORE__FERNET_KEY='mul52scWwioQCVkN-At8KU9--o9yPljbOguqhLBQTFc='
     logging:
       options:
         max-size: 10m
