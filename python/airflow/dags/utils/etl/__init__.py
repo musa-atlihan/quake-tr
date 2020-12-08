@@ -21,7 +21,6 @@ def init_etl():
 def insert_quake_data():
     koeri = KOERI()
     hook = PostgresHook(postgres_conn_id="postgres_quake_tr")
-    for year in range(2007, datetime.now().year):
-        print(f"\n\n\n\n\n\n\n\n{year}\n\n\n\n\n\n\n\n")
+    for year in range(2007, 2008):
         for params in koeri.read_data(year, year+1):
-            hook.run(create_quake_tr_table, autocommit=True, parameters=params)
+            hook.run(insert_quake_tr_table, autocommit=True, parameters=params)
