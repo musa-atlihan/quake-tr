@@ -12,9 +12,7 @@ def init_etl():
     session = Session()
     for connection in CONF.get('connections', []):
         conn = Connection(**connection)
-        try:
-            _ = session.query(Connection.conn_id == conn.conn_id).first()
-        except BaseException as e:
+        if not session.query(Connection.conn_id == conn.conn_id).first():
             session.add(conn)
             session.commit()
     session.close()
