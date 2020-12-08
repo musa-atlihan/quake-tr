@@ -4,7 +4,7 @@ create_quake_tr_table = """
 CREATE TABLE IF NOT EXISTS quake_tr
 (
     quake_id SERIAL PRIMARY KEY,
-    quake_code INT,
+    quake_code VARCHAR,
     quake_time TIMESTAMP,
     lat FLOAT,
     lon FLOAT,
@@ -34,10 +34,10 @@ INSERT INTO quake_tr
 )
 VALUES
 (
-    DEFAULT, %s, %S,
-    %S, %S, %S,
-    %S, %S, %S,
-    %S, %S, %S,
-    %S, %S
+    DEFAULT, %s, %s,
+    %s, %s, %s,
+    %s, %s, %s,
+    %s, %s, %s,
+    %s, %s
 )
 """

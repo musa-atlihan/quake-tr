@@ -12,7 +12,7 @@ def init_etl():
     session = Session()
     for connection in CONF.get('connections', []):
         conn = Connection(**connection)
-        if not session.query(Connection.conn_id == conn.conn_id).first():
+        if session.query(Connection.conn_id == conn.conn_id).first() is None:
             session.add(conn)
             session.commit()
     session.close()
