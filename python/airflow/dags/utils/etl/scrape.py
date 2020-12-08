@@ -37,13 +37,14 @@ class KOERI:
         self.params["bYear"], self.params["eYear"] = year_start, year_end
         self.params["ofName"] = self._generate_file_name()
         request = requests.get(self.url, params=self.params, headers=self.headers)
-        df = pd.read_csv(self.download_url.format(self.params["ofName"]), sep="\t")
+        df = pd.read_csv(self.download_url.format(self.params["ofName"]), sep="\t", encoding="ISO-8859-1")
         for idx, row in df.iterrows():
             yield list(self._parse_row(row)[self.columns])
 
     @staticmethod
     def _parse_row(row):
         row["timestamp"] = f"{row['Olus tarihi']} {row['Olus zamani']}"
+        row["Yer"] = row["Yer"].encode("utf-8")
         return row
 
     def _generate_file_name(self):
