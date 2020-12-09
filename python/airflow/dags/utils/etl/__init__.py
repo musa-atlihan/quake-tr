@@ -12,7 +12,7 @@ def init_etl():
     session = Session()
     for connection in CONF.get('connections', []):
         conn = Connection(**connection)
-        if session.query(Connection.conn_id == conn.conn_id).first() is None:
+        if not session.query(Connection.conn_id == conn.conn_id).first()[0]:
             session.add(conn)
             session.commit()
     session.close()
@@ -21,6 +21,6 @@ def init_etl():
 def insert_quake_data():
     koeri = KOERI()
     hook = PostgresHook(postgres_conn_id="postgres_quake_tr")
-    for year in range(2007, 2008):
+    for year in range(2007, datetime.now().year):
         for params in koeri.read_data(year, year+1):
             hook.run(insert_quake_tr_table, autocommit=True, parameters=params)
