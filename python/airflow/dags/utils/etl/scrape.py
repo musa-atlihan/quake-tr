@@ -20,7 +20,7 @@ class KOERI:
         self.download_url = "http://koeri.boun.edu.tr/sismo/zeqdb/download.php?download_file={}"
         self.params = {
             "bYear": "2019", "bMont": "01", "bDay": "01",
-            "eYear": "2020", "eMont": "01", "eDay": "01",
+            "eYear": "2019", "eMont": "12", "eDay": "31",
             "EnMin": "30.00", "EnMax": "47.00",
             "BoyMin": "21.00", "BoyMax": "50.00",
             "MAGMin": "0.01", "MAGMax": "10.0",
@@ -33,8 +33,8 @@ class KOERI:
             "Mb", "Tip", "Yer"
         ]
 
-    def read_data(self, year_start, year_end):
-        self.params["bYear"], self.params["eYear"] = year_start, year_end
+    def read_data(self, year):
+        self.params["bYear"], self.params["eYear"] = year, year
         self.params["ofName"] = self._generate_file_name()
         request = requests.get(self.url, params=self.params, headers=self.headers)
         df = pd.read_csv(self.download_url.format(self.params["ofName"]), sep="\t", encoding="ISO-8859-1")
