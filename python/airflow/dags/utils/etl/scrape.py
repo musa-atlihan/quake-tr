@@ -23,7 +23,7 @@ class KOERI:
             "eYear": "2019", "eMont": "12", "eDay": "31",
             "EnMin": "30.00", "EnMax": "47.00",
             "BoyMin": "21.00", "BoyMax": "50.00",
-            "MAGMin": "0.01", "MAGMax": "10.0",
+            "MAGMin": "0.01", "MAGMax": "9.9",
             "DerMin": "0", "DerMax": "1000",
             "Tip": "Hepsi"
         }
