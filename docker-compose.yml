@@ -12,6 +12,8 @@ services:
       - "5435:5432"
     volumes:
       - ./data/postgres_quake_tr:/var/lib/postgresql/data
+    networks:
+      - pg-network
   postgres:
     image: postgres:9.6
     restart: always
@@ -70,3 +72,6 @@ services:
       - "5051:80"
     depends_on:
       - quake_tr_postgres
+
+networks:
+  pg-network:
